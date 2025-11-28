@@ -1,5 +1,6 @@
 package com.example.kotlinksp.repositori
 
+import android.app.Application
 import androidx.room.processor.Context
 import com.example.kotlinksp.room.DatabaseSiswa
 
@@ -14,4 +15,8 @@ class ContainerDataApp(private  val context: Context):
             DatabaseSiswa.getDatabase(context).siswaDao()
         )
     }
+}
+
+class AplikasiSiswa : Application(){
+
 }
