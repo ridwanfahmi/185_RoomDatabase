@@ -12,16 +12,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlinksp.ui.theme.KotlinkspTheme
+import com.example.kotlinksp.view.uicontroller.
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            KotlinkspTheme {
+            kotlinkspTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    SiswaApp(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -41,7 +41,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    KotlinkspTheme {
+    kotlinkspTheme {
         Greeting("Android")
     }
 }
