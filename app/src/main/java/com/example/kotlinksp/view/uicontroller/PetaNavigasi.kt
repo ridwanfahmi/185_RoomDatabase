@@ -21,6 +21,7 @@ import com.example.kotlinksp.view.route.DestinasiHome
 
 
 @Composable
+
 fun SiswaApp(navController: NavHostController= rememberNavController(), modifier: Modifier){
     HostNavigasi(navController = navController)
 }
@@ -37,7 +38,7 @@ fun HostNavigasi(
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
                 navigateToItemUpdate = { navController.navigate("${DestinasiDetailSiswa.route}/${it}") },
-
+                navigateBack = { navController.popBackStack() }
             )
         }
         composable(DestinasiEntry.route) {
@@ -72,7 +73,8 @@ fun HostNavigasi(
             EditSiswaScreen(
                 navigateBack = { navController.popBackStack() },
                 onNavigateUp = { navController.navigateUp() }
-
+                // Anda mungkin perlu meneruskan argumen ke EditSiswaScreen
+                // itemId = backStackEntry.arguments?.getInt(itemIdArg) ?: -1
             )
         }
     }

@@ -11,22 +11,20 @@ import com.example.kotlinksp.viewmodel.EditViewModel
 import com.example.kotlinksp.viewmodel.EntryViewModel
 import com.example.kotlinksp.viewmodel.HomeViewModel
 
-object PenyediaViewModel {
+object PenyediaViewModel{
     val Factory = viewModelFactory {
         initializer {
             HomeViewModel(aplikasiSiswa().container.repositoriSiswa)
         }
-
         initializer {
             EntryViewModel(aplikasiSiswa().container.repositoriSiswa)
         }
-
         initializer {
-            DetailViewModel(this.createSavedStateHandle(),
+            DetailViewModel(
+                this.createSavedStateHandle(),
                 aplikasiSiswa().container.repositoriSiswa
             )
         }
-
         initializer {
             EditViewModel(
                 this.createSavedStateHandle(),
@@ -36,6 +34,10 @@ object PenyediaViewModel {
     }
 }
 
+/**
+ * Fungsi ekstensi query untuk objek Application dan mengembalikan sebuah instance dari
+ * AplikasiSiswa
+ */
 
 fun CreationExtras.aplikasiSiswa(): AplikasiSiswa =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as AplikasiSiswa)

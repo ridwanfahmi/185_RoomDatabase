@@ -27,7 +27,7 @@ class EditViewModel(
             uiStateSiswa = repositoriSiswa.getSiswaStream(idSiswa)
                 .filterNotNull()
                 .first()
-                .toUIStateSiswa(true)
+                .toUiStateSiswa(true)
         }
     }
 
